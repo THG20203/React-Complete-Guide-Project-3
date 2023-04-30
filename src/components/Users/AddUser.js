@@ -8,6 +8,7 @@ const AddUser = (props) => {
   /* call useState and can define the initial starting state -> starting state will be 
   no input */
   const [enteredUsername, setEnteredUsername] = useState("");
+  const [enteredAge, setEnteredAge] = useState("");
 
   const addUserHandler = (event) => {
     /* prevent default which for submission event = request is sent. */
@@ -22,6 +23,10 @@ const AddUser = (props) => {
     entered value with the help of that event object. There we can access target of the event 
     (the input), then -> the value of the property, to get the currently entered value. */
     setEnteredUsername(event.target.value);
+  };
+
+  const ageChangeHandler = (event) => {
+    setEnteredAge(event.target.value);
   };
 
   return (
