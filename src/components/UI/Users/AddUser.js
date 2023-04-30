@@ -2,12 +2,14 @@ import React from "react";
 
 const AddUser = (props) => {
   return (
-    <form>
-      <label htmlFor="username">Username</label>
+    /* onSubmit prop -> specify function that should be executed when form 
+      is submitted. */
+    <form onSubmit="">
       {/* htmlFor = prop name for assigning that attribute to a label, 
       connect with input with username value. */}
-      <input id="username" type="text" />
+      <label htmlFor="username">Username</label>
       {/* input -> user to type in username, hence type text */}
+      <input id="username" type="text" />
       <label htmlFor="age">Age (Years)</label>
       <input id="age" type="number"></input>
       <button type="submit">Add User</button>
