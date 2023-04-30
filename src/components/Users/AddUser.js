@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../UI/Card";
 /* remember for non JavaScript files in react need to add file extension, i.e. .css */
 import classes from "./AddUser.module.css";
 import Button from "../UI/Button";
 
 const AddUser = (props) => {
+  /* call useState and can define the initial starting state -> starting state will be 
+  no input */
+  const [enteredUsername, setEnteredUsername] = useState("");
+
   const addUserHandler = (event) => {
     /* prevent default which for submission event = request is sent. */
     event.preventDefault();
   };
+
+  /* Now we need a function triggered on every keystroke */
+  /* Get event object, because we'll listen to a default DOM event - such events will dispatch
+  objects with more information, and we can bind this to input. */
+  const usernameChangeHandler = (event) => {};
 
   return (
     /* wrap in Card component. Card is custom component, not built in HTML, therefore only
@@ -23,7 +32,9 @@ const AddUser = (props) => {
       connect with input with username value. */}
         <label htmlFor="username">Username</label>
         {/* input -> user to type in username, hence type text */}
-        <input id="username" type="text" />
+        {/* onChange prop, tie this to the onChange listener -> this function = triggered for every 
+        keystroke in the input element. */}
+        <input id="username" type="text" onChange={usernameChangeHandler} />
         <label htmlFor="age">Age (Years)</label>
         <input id="age" type="number" />
         <Button type="submit">Add User</Button>
