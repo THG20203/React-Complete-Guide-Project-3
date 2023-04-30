@@ -13,8 +13,13 @@ const AddUser = (props) => {
   const addUserHandler = (event) => {
     /* prevent default which for submission event = request is sent. */
     event.preventDefault();
-    /* Resetting logic */
-    setEnteredUsername("");
+    /* Validation logic -> make sure all the code only excutes if we have valid inputs,
+    so both the name and age have to be present, and the age must be larger than one */
+    /* so if enteredUsername === 0 (equals empty). (Trim method removing any whitespace excess),
+    OR if enteredAge is empty -> so same check again */
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0)
+      /* Resetting logic */
+      setEnteredUsername("");
     setEnteredAge("");
   };
 
