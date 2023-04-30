@@ -1,5 +1,7 @@
 import React from "react";
 import Card from "../UI/Card";
+/* remember for non JavaScript files in react need to add file extension, i.e. .css */
+import classes from "./AddUser.module.css";
 
 const AddUser = (props) => {
   const addUserHandler = (event) => {
@@ -8,8 +10,9 @@ const AddUser = (props) => {
   };
 
   return (
-    /* wrap in Card component */
-    <Card>
+    /* wrap in Card component. Card is custom component, not built in HTML, therefore only
+    has the props, or it only is able to work with the props we use inside of that component. */
+    <Card className={classes.input}>
       {/* onSubmit prop -> specify function that should be executed when form is
       submitted. pass addUserHandler to onSubmit. passing pointer of
       addUserHandler to the onSubmit prop, so that form component internally can
