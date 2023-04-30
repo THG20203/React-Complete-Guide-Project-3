@@ -1,9 +1,10 @@
 import React from "react";
+import Card from "../UI/Card";
 
 const AddUser = (props) => {
   const addUserHandler = (event) => {
     /* prevent default which for submission event = request is sent. */
-    event.preventDefault;
+    event.preventDefault();
   };
 
   return (
@@ -20,7 +21,7 @@ const AddUser = (props) => {
         {/* input -> user to type in username, hence type text */}
         <input id="username" type="text" />
         <label htmlFor="age">Age (Years)</label>
-        <input id="age" type="number"></input>
+        <input id="age" type="number" />
         <button type="submit">Add User</button>
       </form>
     </Card>
