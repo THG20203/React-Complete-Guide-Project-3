@@ -16,10 +16,21 @@ const AddUser = (props) => {
     /* Validation logic -> make sure all the code only excutes if we have valid inputs,
     so both the name and age have to be present, and the age must be larger than one */
     /* so if enteredUsername === 0 (equals empty). (Trim method removing any whitespace excess),
-    OR if enteredAge is empty -> so same check again */
-    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0)
-      /* Resetting logic */
-      setEnteredUsername("");
+    OR if enteredAge is empty -> so same check again then want to return */
+    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+      return;
+    }
+    /* want to check for age input value -> not just if its empty, but also if its not empty but
+    smaller than 1 */
+    /* enteredAge is a string not a number and anything thats entered into input below is always 
+    retrieved as a string. Although we're comparing enteredAge to a number, that should generally 
+    work in JavaScript, but to be super safe, we can force a conversion of enteredAge to a number
+    by adding a + sign */
+    if (+enteredAge < 1) {
+      return;
+    }
+    /* Resetting logic */
+    setEnteredUsername("");
     setEnteredAge("");
   };
 
