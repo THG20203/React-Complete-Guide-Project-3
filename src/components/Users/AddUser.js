@@ -46,7 +46,7 @@ const AddUser = (props) => {
         keystroke in the input element. */}
         <input id="username" type="text" onChange={usernameChangeHandler} />
         <label htmlFor="age">Age (Years)</label>
-        <input id="age" type="number" />
+        <input id="age" type="number" onChange={ageChangeHandler} />
         <Button type="submit">Add User</Button>
       </form>
     </Card>
