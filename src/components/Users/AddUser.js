@@ -7,20 +7,23 @@ const AddUser = (props) => {
   };
 
   return (
-    /* onSubmit prop -> specify function that should be executed when form 
-      is submitted. pass addUserHandler to onSubmit. passing pointer of 
-      addUserHandler to the onSubmit prop, so that form component internally 
-      can use that function when it needs to use it, i.e when form = submitted. */
-    <form onSubmit={addUserHandler}>
-      {/* htmlFor = prop name for assigning that attribute to a label, 
+    /* wrap in Card component */
+    <Card>
+      {/* onSubmit prop -> specify function that should be executed when form is
+      submitted. pass addUserHandler to onSubmit. passing pointer of
+      addUserHandler to the onSubmit prop, so that form component internally can
+  use that function when it needs to use it, i.e when form = submitted. */}
+      <form onSubmit={addUserHandler}>
+        {/* htmlFor = prop name for assigning that attribute to a label, 
       connect with input with username value. */}
-      <label htmlFor="username">Username</label>
-      {/* input -> user to type in username, hence type text */}
-      <input id="username" type="text" />
-      <label htmlFor="age">Age (Years)</label>
-      <input id="age" type="number"></input>
-      <button type="submit">Add User</button>
-    </form>
+        <label htmlFor="username">Username</label>
+        {/* input -> user to type in username, hence type text */}
+        <input id="username" type="text" />
+        <label htmlFor="age">Age (Years)</label>
+        <input id="age" type="number"></input>
+        <button type="submit">Add User</button>
+      </form>
+    </Card>
   );
 };
 /* AddUser function arrow function stored within a const, could have 
