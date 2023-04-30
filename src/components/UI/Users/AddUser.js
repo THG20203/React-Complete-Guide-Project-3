@@ -8,8 +8,9 @@ const AddUser = (props) => {
       connect with input with username value. */}
       <input id="username" type="text" />
       {/* input -> user to type in username, hence type text */}
-      <label htmlFor="username">Age (Years)</label>
-      <input id="username" type="number"></input>
+      <label htmlFor="age">Age (Years)</label>
+      <input id="age" type="number"></input>
+      <button type="submit">Add User</button>
     </form>
   );
 };
