@@ -13,6 +13,9 @@ const AddUser = (props) => {
   const addUserHandler = (event) => {
     /* prevent default which for submission event = request is sent. */
     event.preventDefault();
+    /* Resetting logic */
+    setEnteredUsername("");
+    setEnteredAge("");
   };
 
   /* Now we need a function triggered on every keystroke */
@@ -44,9 +47,22 @@ const AddUser = (props) => {
         {/* input -> user to type in username, hence type text */}
         {/* onChange prop, tie this to the onChange listener -> this function = triggered for every 
         keystroke in the input element. */}
-        <input id="username" type="text" onChange={usernameChangeHandler} />
+        {/* Setting value in the inputs to reflect current states. with value={enteredUsername} etc, 
+        we'll have inputs that actually reflect the current state snapshot, even if its not changed for 
+        a keystroke. */}
+        <input
+          id="username"
+          type="text"
+          value={enteredUsername}
+          onChange={usernameChangeHandler}
+        />
         <label htmlFor="age">Age (Years)</label>
-        <input id="age" type="number" onChange={ageChangeHandler} />
+        <input
+          id="age"
+          type="number"
+          value={enteredAge}
+          onChange={ageChangeHandler}
+        />
         <Button type="submit">Add User</Button>
       </form>
     </Card>
