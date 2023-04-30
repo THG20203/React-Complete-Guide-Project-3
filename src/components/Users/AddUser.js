@@ -17,7 +17,12 @@ const AddUser = (props) => {
   /* Now we need a function triggered on every keystroke */
   /* Get event object, because we'll listen to a default DOM event - such events will dispatch
   objects with more information, and we can bind this to input. */
-  const usernameChangeHandler = (event) => {};
+  const usernameChangeHandler = (event) => {
+    /* calling setEnteredUsername -> set it to what the user currently entered. Get that
+    entered value with the help of that event object. There we can access target of the event 
+    (the input), then -> the value of the property, to get the currently entered value. */
+    setEnteredUsername(event.target.value);
+  };
 
   return (
     /* wrap in Card component. Card is custom component, not built in HTML, therefore only
