@@ -1,10 +1,17 @@
 import React from "react";
 
 const AddUser = (props) => {
+  const addUserHandler = (event) => {
+    /* prevent default which for submission event = request is sent. */
+    event.preventDefault;
+  };
+
   return (
     /* onSubmit prop -> specify function that should be executed when form 
-      is submitted. */
-    <form onSubmit="">
+      is submitted. pass addUserHandler to onSubmit. passing pointer of 
+      addUserHandler to the onSubmit prop, so that form component internally 
+      can use that function when it needs to use it, i.e when form = submitted. */
+    <form onSubmit={addUserHandler}>
       {/* htmlFor = prop name for assigning that attribute to a label, 
       connect with input with username value. */}
       <label htmlFor="username">Username</label>
