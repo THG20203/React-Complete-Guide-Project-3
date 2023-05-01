@@ -45,6 +45,11 @@ const AddUser = (props) => {
     work in JavaScript, but to be super safe, we can force a conversion of enteredAge to a number
     by adding a + sign */
     if (+enteredAge < 1) {
+      /* managing error as an object -> set the Error state */
+      setError({
+        title: "Invalid Age",
+        message: "Please enter a valid age (> 0).",
+      });
       return;
     }
     /* inside of the AddUser component, we need to utilise this onAddUser prop 
@@ -82,18 +87,22 @@ const AddUser = (props) => {
   };
 
   return (
-    <div>
-      {/* react doesn't allow two side by side components to be rendered,
+    /* react doesn't allow two side by side components to be rendered,
       directly as a root element of your return statement, so ErrorModal and
-  Card needs to be wrapped */}
-      <ErrorModal title="An error occured!" message="Something went wrong" />
+  Card needs to be wrapped */
+    <div>
+      {/* Conditionally render the error modal - use curly braces -> JS expression, and 
+      &&. So now error modal will only be output if we have an error */}
+      {error && (
+        <ErrorModal title="An error occured!" message="Something went wrong" />
+      )}
       {/* wrap in Card component. Card is custom component, not built in HTML, therefore only
-  has the props, or it only is able to work with the props we use inside of that component. */}
+      has the props, or it only is able to work with the props we use inside of that component. */}
       <Card className={classes.input}>
         {/* onSubmit prop -> specify function that should be executed when form is
       submitted. pass addUserHandler to onSubmit. passing pointer of
       addUserHandler to the onSubmit prop, so that form component internally can
-  use that function when it needs to use it, i.e when form = submitted. */}
+      use that function when it needs to use it, i.e when form = submitted. */}
         <form onSubmit={addUserHandler}>
           {/* htmlFor = prop name for assigning that attribute to a label, 
       connect with input with username value. */}
