@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 /* remember for non JavaScript files in react need to add file extension, i.e. .css */
 import classes from "./AddUser.module.css";
+import ErrorModal from "../UI/ErrorModal";
 import Button from "../UI/Button";
 
 const AddUser = (props) => {
@@ -64,39 +65,45 @@ const AddUser = (props) => {
   };
 
   return (
-    /* wrap in Card component. Card is custom component, not built in HTML, therefore only
-    has the props, or it only is able to work with the props we use inside of that component. */
-    <Card className={classes.input}>
-      {/* onSubmit prop -> specify function that should be executed when form is
+    <div>
+      /* react doesn't allow two side by side components to be rendered,
+      directly as a root element of your return statement, so ErrorModal and
+      Card needs to be wrapped */
+      <ErrorModal title="An error occured!" message="Something went wrong" />
+      {/* wrap in Card component. Card is custom component, not built in HTML, therefore only
+  has the props, or it only is able to work with the props we use inside of that component. */}
+      <Card className={classes.input}>
+        {/* onSubmit prop -> specify function that should be executed when form is
       submitted. pass addUserHandler to onSubmit. passing pointer of
       addUserHandler to the onSubmit prop, so that form component internally can
   use that function when it needs to use it, i.e when form = submitted. */}
-      <form onSubmit={addUserHandler}>
-        {/* htmlFor = prop name for assigning that attribute to a label, 
+        <form onSubmit={addUserHandler}>
+          {/* htmlFor = prop name for assigning that attribute to a label, 
       connect with input with username value. */}
-        <label htmlFor="username">Username</label>
-        {/* input -> user to type in username, hence type text */}
-        {/* onChange prop, tie this to the onChange listener -> this function = triggered for every 
+          <label htmlFor="username">Username</label>
+          {/* input -> user to type in username, hence type text */}
+          {/* onChange prop, tie this to the onChange listener -> this function = triggered for every 
         keystroke in the input element. */}
-        {/* Setting value in the inputs to reflect current states. with value={enteredUsername} etc, 
+          {/* Setting value in the inputs to reflect current states. with value={enteredUsername} etc, 
         we'll have inputs that actually reflect the current state snapshot, even if its not changed for 
         a keystroke. */}
-        <input
-          id="username"
-          type="text"
-          value={enteredUsername}
-          onChange={usernameChangeHandler}
-        />
-        <label htmlFor="age">Age (Years)</label>
-        <input
-          id="age"
-          type="number"
-          value={enteredAge}
-          onChange={ageChangeHandler}
-        />
-        <Button type="submit">Add User</Button>
-      </form>
-    </Card>
+          <input
+            id="username"
+            type="text"
+            value={enteredUsername}
+            onChange={usernameChangeHandler}
+          />
+          <label htmlFor="age">Age (Years)</label>
+          <input
+            id="age"
+            type="number"
+            value={enteredAge}
+            onChange={ageChangeHandler}
+          />
+          <Button type="submit">Add User</Button>
+        </form>
+      </Card>
+    </div>
   );
 };
 /* AddUser function arrow function stored within a const, could have 
