@@ -3,12 +3,16 @@ import Card from "./Card";
 /* because have button to close the modal, importing the button -> re use the button 
 component -> Re usable building blocks. */
 import Button from "./Button";
+/* Import CSS module for Error modal */
+import classes from "./ErrorModal.module.css";
 
 /* ErrorModal gets props */
 const ErrorModal = (props) => {
   /* Using Card as a wrapper -> like the rounded corners */
   return (
-    <Card>
+    /* Couple of classes that should be attached from ErrorModal.module.css for example:
+    classes.modal class -> one of the classes defined in css file */
+    <Card className={classes.modal}>
       {/* Inside of Card component, modal should have different sections. */}
       <header>
         {/* h2 tag -> output a title. Modal should be configurable from the outside.
