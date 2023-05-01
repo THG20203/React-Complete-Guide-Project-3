@@ -66,9 +66,9 @@ const AddUser = (props) => {
 
   return (
     <div>
-      /* react doesn't allow two side by side components to be rendered,
+      {/* react doesn't allow two side by side components to be rendered,
       directly as a root element of your return statement, so ErrorModal and
-      Card needs to be wrapped */
+  Card needs to be wrapped */}
       <ErrorModal title="An error occured!" message="Something went wrong" />
       {/* wrap in Card component. Card is custom component, not built in HTML, therefore only
   has the props, or it only is able to work with the props we use inside of that component. */}

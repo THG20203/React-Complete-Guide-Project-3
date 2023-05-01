@@ -10,31 +10,37 @@ import classes from "./ErrorModal.module.css";
 const ErrorModal = (props) => {
   /* Using Card as a wrapper -> like the rounded corners */
   return (
-    /* Couple of classes that should be attached from ErrorModal.module.css for example:
-    classes.modal class -> one of the classes defined in css file */
-    <Card className={classes.modal}>
-      {/* Inside of Card component, modal should have different sections. */}
-      <header className={classes.header}>
-        {/* h2 tag -> output a title. Modal should be configurable from the outside.
+    <div>
+      {/* Need overlay so can't interact with the rest of the page whilst the
+      modal is present -> Hence classes.backdrop class. */}
+      <div className={classes.backdrop}></div>
+      {/* Couple of classes that should be attached from ErrorModal.module.css
+      for example: classes.modal class -> one of the classes defined in css file
+      backdrop css makes sure there is greyish transparent background behind the modal */}
+      <Card className={classes.modal}>
+        {/* Inside of Card component, modal should have different sections. */}
+        <header className={classes.header}>
+          {/* h2 tag -> output a title. Modal should be configurable from the outside.
         So, don't want to hard code the title and the message into this component. it 
         should also be reusable. (Can use it in different places of the app, to show
         different error messages). */}
-        {/* Hence, outputting something dynamic between curly braces -> use props.title 
+          {/* Hence, outputting something dynamic between curly braces -> use props.title 
         for example. Can be props.anythingIwant -> its my component */}
-        <h2>{props.title}</h2>
-      </header>
-      <div className={classes.content}>
-        {/* <div> element to hold main content -> paragraph with the error message want to 
+          <h2>{props.title}</h2>
+        </header>
+        <div className={classes.content}>
+          {/* <div> element to hold main content -> paragraph with the error message want to 
         display eventually. */}
-        {/* similar to title above, expect a message prop which holds a message that should 
+          {/* similar to title above, expect a message prop which holds a message that should 
         be output here. */}
-        <p>{props.message}</p>
-      </div>
-      <footer className={classes.actions}>
-        {/* In footer want to have button we can click to close the modal */}
-        <Button>Okay</Button>
-      </footer>
-    </Card>
+          <p>{props.message}</p>
+        </div>
+        <footer className={classes.actions}>
+          {/* In footer want to have button we can click to close the modal */}
+          <Button>Okay</Button>
+        </footer>
+      </Card>
+    </div>
   );
 };
 
