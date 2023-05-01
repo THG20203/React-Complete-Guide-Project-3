@@ -10,6 +10,18 @@ const AddUser = (props) => {
   no input */
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
+  /* Need to update UI conditionally based on the question "is there an 
+  error or not". This means state management. We need to manage some 
+  error state. Could be a string -> like the error message, could be an object ->
+  which bundles error or title message. */
+  /* Need to manage such an error state so can set it to 'we have an error'
+  (in which case we want to render the modal) AND so we can set it to, we haven't
+  got an error, (in which csase we render no modal) */
+
+  /* With all theory above -> we need an extra piece of state, inital value of 
+  undefined. Going to name the const error and setError, because I'm going to manage
+  some error information. I'm going to manage error as an oject. */
+  const [error, setError] = useState("");
 
   const addUserHandler = (event) => {
     /* prevent default which for submission event = request is sent. */
@@ -19,6 +31,11 @@ const AddUser = (props) => {
     /* so if enteredUsername === 0 (equals empty). (Trim method removing any whitespace excess),
     OR if enteredAge is empty -> so same check again then want to return */
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+      /* managing error as an object -> set the Error state */
+      setError({
+        title: "Invalid Input",
+        message: "Please enter a valid name and age (non-empty values).",
+      });
       return;
     }
     /* want to check for age input value -> not just if its empty, but also if its not empty but
