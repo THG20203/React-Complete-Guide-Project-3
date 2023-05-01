@@ -93,9 +93,7 @@ const AddUser = (props) => {
     <div>
       {/* Conditionally render the error modal - use curly braces -> JS expression, and 
       &&. So now error modal will only be output if we have an error */}
-      {error && (
-        <ErrorModal title="An error occured!" message="Something went wrong" />
-      )}
+      {error && <ErrorModal title={error.title} message={error.message} />}
       {/* wrap in Card component. Card is custom component, not built in HTML, therefore only
       has the props, or it only is able to work with the props we use inside of that component. */}
       <Card className={classes.input}>
