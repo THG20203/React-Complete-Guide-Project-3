@@ -29,6 +29,20 @@ const AddUser = (props) => {
     if (+enteredAge < 1) {
       return;
     }
+    /* inside of the AddUser component, we need to utilise this onAddUser prop 
+    (from App.js), so here in addUser.js in the addUserHanlder add props.onAddUser() ->
+    and execute it as a function here. */
+
+    /* This is  because I know what I get as a value on that prop will be a function. 
+    Thats because we're passing a pointer at AddUserHandler to onAddUser in the App.js,
+    and addUserHandler is a function. So we can exercise onAddUser() as a function inside of
+    the AddUserComponent. */
+
+    /* into onAddUser function we're calling here, just need to add two pieces of data -> the 
+    enteredUsername and the enteredAge -> which we've got stored in the AddUser component. */
+
+    /* With that -> we're forwarding the entered data to the App component upon every click */
+    props.onAddUser(enteredUsername, enteredAge);
     /* Resetting logic */
     setEnteredUsername("");
     setEnteredAge("");
@@ -90,5 +104,3 @@ done function AddUser() {} but chose not to */
 enter a name and an age, and have button to confirm all of that. */
 
 export default AddUser;
-/* export as default, so can import that component into another file
-and use it there */
