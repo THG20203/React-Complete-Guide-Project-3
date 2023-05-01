@@ -1,8 +1,18 @@
-import React from "react";
+/* we want to lift up the state, manage our state within the App.js component, because
+its the one component above AddUser and UsersList, its the nearest component above those
+two components, which has access to both components. Therefore lift state management up to
+this App component. */
+
+/* So want to match users array, do this with the useState hook - because its state of this 
+app, and when that state data changes, the App should re-render. Thats exactly what useState 
+and the state managed by it does. */
+import React, { useState } from "react";
 import AddUser from "./components/Users/AddUser";
 import UsersList from "./components/Users/UsersList";
 
 function App() {
+  /* We call useState inside of App, and we initialise this with an empty array */
+  useState([]);
   return (
     <div>
       <AddUser />
