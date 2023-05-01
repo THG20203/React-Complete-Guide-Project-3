@@ -11,8 +11,13 @@ import AddUser from "./components/Users/AddUser";
 import UsersList from "./components/Users/UsersList";
 
 function App() {
-  /* We call useState inside of App, and we initialise this with an empty array */
-  useState([]);
+  /* We call useState inside of App, and we initialise this with an empty array. useState always
+  returns two elements, so we can use array destructuring in the const - usersList, setUsersList */
+  /* We now have a function that allows us to change that array, and then that 
+  change would trigger the App component to be re rendered, hence the UsersList component would
+  be updated as well -> would also be re rendered because its part of the App component. */
+
+  const [usersList, setUsersList] = useState([]);
   return (
     <div>
       <AddUser />
@@ -21,9 +26,9 @@ function App() {
       {/* When use UsersList as JSX -> (as a regular HTML tag in the end), need 
       to set that users prop or I need to include a check here where I check 
       whether its undefined and I don't even try to map it. */}
-      {/* users prop -> has to be 'users', and set this to an array. */}
-      {/* // THIS COMMENT WILL CHANGE -> empty array [] for now */}
-      <UsersList users={[]} />
+      {/* users prop -> has to be 'users', and set this to the usersList array, which
+      we want to forward to the UsersList component. */}
+      <UsersList users={usersList} />
     </div>
   );
 }
