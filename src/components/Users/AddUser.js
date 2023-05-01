@@ -106,14 +106,23 @@ is no longer met. */
     <div>
       {/* Conditionally render the error modal - use curly braces -> JS expression, and 
       &&. So now error modal will only be output if we have an error */}
-      {error && <ErrorModal title={error.title} message={error.message} />}
+      {/* Adding onConfirm prop -> (we had just added inside of the error modal). Pass in
+      a pointer at the error handler function we defined. The errorHandler function in 
+      AddUser.js is what is ultimately triggered when click on backdrop or button*/}
+      {error && (
+        <ErrorModal
+          title={error.title}
+          message={error.message}
+          onConfirm={errorHandler}
+        />
+      )}
       {/* wrap in Card component. Card is custom component, not built in HTML, therefore only
       has the props, or it only is able to work with the props we use inside of that component. */}
       <Card className={classes.input}>
-        {/* onSubmit prop -> specify function that should be executed when form is
-      submitted. pass addUserHandler to onSubmit. passing pointer of
-      addUserHandler to the onSubmit prop, so that form component internally can
-      use that function when it needs to use it, i.e when form = submitted. */}
+        {/* onSubmit prop -> specify function that should be executed when form is submitted. 
+        Pass addUserHandler to onSubmit. Passing pointer of addUserHandler to the onSubmit prop, 
+        so that form component internally can use that function when it needs to use it, 
+        i.e when form = submitted. */}
         <form onSubmit={addUserHandler}>
           {/* htmlFor = prop name for assigning that attribute to a label, 
       connect with input with username value. */}

@@ -42,7 +42,9 @@ const ErrorModal = (props) => {
         </div>
         <footer className={classes.actions}>
           {/* In footer want to have button we can click to close the modal */}
-          <Button>Okay</Button>
+          {/* Apllying onClick to button, can use this our custom button component forwards
+          whatever we pass to onClick to the native onClick */}
+          <Button onClick={props.onConfirm}>Okay</Button>
         </footer>
       </Card>
     </div>
