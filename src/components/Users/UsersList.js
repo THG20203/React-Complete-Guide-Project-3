@@ -25,7 +25,14 @@ const UsersList = (props) => {
         item as an input, since its an array of users I'll name single item 'user' and 
         write an anonymous arrow function. */}
         {props.users.map((user) => (
-          <li>
+          /* Every child in a list should have key prop which has a unique value. React needs
+          this to efficiently update list items and re render them effeciently. We've got only 
+          one list which we render in this whole application -> and thats inside UsersList. */
+          /* In UsersList -> we create a bunch of list items, and thats exactly what should
+          have the key prop, because its the item I repeat. */
+          /* On <li> element, need a unique key prop -> unique id which has been set dynamically
+          to user.id */
+          <li key={user.id}>
             {/* Inside anonymous arrow function, we return a JSX element for every user of
             that users array we expect to get on this prop. Hence <li> element */}
             {/* Expectations = users is an array of user objects, where every oject has a name 

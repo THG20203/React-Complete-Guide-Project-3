@@ -42,7 +42,7 @@ const AddUser = (props) => {
     enteredUsername and the enteredAge -> which we've got stored in the AddUser component. */
 
     /* With that -> we're forwarding the entered data to the App component upon every click on
-    the AddUser button here inside of the AddUSer component. */
+    the AddUser button here inside of the AddUser component. */
     props.onAddUser(enteredUsername, enteredAge);
     /* Resetting logic */
     setEnteredUsername("");

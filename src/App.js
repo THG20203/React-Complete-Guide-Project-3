@@ -43,7 +43,13 @@ function App() {
 
       /* With step 1 & 2, we create a new JavaScript object for every user, and we add that to our 
       UsersList array. */
-      return [...prevUsersList, { name: uName, age: uAge }];
+
+      /* we need to add an ID also in the place where we create a user -> make it unique -> 
+      Math.random().toString() -> roughly unqiue. */
+      return [
+        ...prevUsersList,
+        { name: uName, age: uAge, id: Math.random().toString() },
+      ];
     });
   };
 
