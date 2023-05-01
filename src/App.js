@@ -35,9 +35,15 @@ function App() {
     setUsersList((prevUsersList) => {
       /* Then we are reutnring my new state snapshot in the body of the function I pass to setUsersList */
 
-      /* Using spread operator, pull all elements out of the prevUsersList array, and adds them as new
+      /* Step 1: Using spread operator, pull all elements out of the prevUsersList array, and adds them as new
       elements to this new array -> */
-      return [...prevUsersList];
+
+      /* Step 2: Then I'm adding one new element at the end -> adding a new JavaScript object with a name field 
+      (uName is the value we stored there), and the age field, (uAge is the value we stored there) */
+
+      /* With step 1 & 2, we create a new JavaScript object for every user, and we add that to our 
+      UsersList array. */
+      return [...prevUsersList, { name: uName, age: uAge }];
     });
   };
 
@@ -51,7 +57,9 @@ function App() {
         something convention, because in the end will kind of work like an event). When that 
         addUserButton is clicked, (which ultimately happens when I click on the button, then a function
         which we pass to onAddUser should be triggered) */}
-      <AddUser onAddUser />
+
+      {/* passing addUserHandler to the onAddUser prop, on AddUser component. */}
+      <AddUser onAddUser={addUserHandler} />
 
       {/* I'm extracting users from props, so I expect to get that users data
       (that array in the end), on the users prop, on my UsersList component. */}
