@@ -14,7 +14,7 @@ const ErrorModal = (props) => {
     classes.modal class -> one of the classes defined in css file */
     <Card className={classes.modal}>
       {/* Inside of Card component, modal should have different sections. */}
-      <header classNAme={classes.header}>
+      <header className={classes.header}>
         {/* h2 tag -> output a title. Modal should be configurable from the outside.
         So, don't want to hard code the title and the message into this component. it 
         should also be reusable. (Can use it in different places of the app, to show
