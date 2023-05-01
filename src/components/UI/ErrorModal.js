@@ -13,7 +13,12 @@ const ErrorModal = (props) => {
     <div>
       {/* Need overlay so can't interact with the rest of the page whilst the
       modal is present -> Hence classes.backdrop class. */}
-      <div className={classes.backdrop}></div>
+      {/* In error modal, want to register clicks and trigger that error handling function */}
+      {/* So on div which renders the backdrop, add onClick prop (available on every 
+        default HTML component React offers), and I'll trigger the props.onConfirm function.
+        It's my component so could name it whatever I want -> onConfirm is what I want to 
+        name it. */}
+      <div className={classes.backdrop} onClick={props.onConfirm}></div>
       {/* Couple of classes that should be attached from ErrorModal.module.css
       for example: classes.modal class -> one of the classes defined in css file
       backdrop css makes sure there is greyish transparent background behind the modal */}

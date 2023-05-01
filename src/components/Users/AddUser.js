@@ -86,6 +86,19 @@ const AddUser = (props) => {
     setEnteredAge(event.target.value);
   };
 
+  /* Need to be able to get rid of modal window based a click on the button 
+or by clicking on the background around the modal. So we need to be able to
+clear out our error state */
+  /* Only way of getting rid of modal is to reset error to undefined or to 
+null, or to any other falsy value so that error && ErrorModal... condition
+is no longer met. */
+  /* So errorHandler -> setError(null) -> set it from an object to null. Null is
+  treated as a falsy value, so now error && ErrorModal... would no longer be
+  rendered. */
+  const errorHandler = () => {
+    setError(null);
+  };
+
   return (
     /* react doesn't allow two side by side components to be rendered,
       directly as a root element of your return statement, so ErrorModal and
